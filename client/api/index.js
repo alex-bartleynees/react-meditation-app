@@ -1,10 +1,11 @@
 import request from 'superagent'
 
-export function getPosts () {
-  return request.get('/v1/posts')
+export function addUser (user) {
+  console.log("this is data: ", user)
+  return request.post('/v1/meditationRoutes')
+    .send(user)
     .then(res => {
-      res.body.forEach((post) => validateNoSnakeCase(post))
       return res.body
     })
-    .catch(errorHandler('GET', '/v1/posts'))
+    .catch(err => {return "the error is: ", err.message})
 }

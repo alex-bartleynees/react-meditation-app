@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
 import AppRoutes from './AppRoutes'
+import Header from './Header'
 
 
 function App () {
   
   return (
-    <div>
-      
+    <>
+      <Header />
+      <AppRoutes />
+
     
-    </div>
+    </>
   )
 }
 
 export default App
-d
