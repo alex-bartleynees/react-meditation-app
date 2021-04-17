@@ -7,7 +7,8 @@ const ViewMeditation = (props) => {
   const id = props.match.params.id
 
   const [meditation, setMeditation] = useState([])
-  
+ 
+
   useEffect(() => {
     getAllMeditations()
       .then((res) => {
@@ -16,42 +17,44 @@ const ViewMeditation = (props) => {
   }, [])
 
 
- 
-  // const time = meditation.map(ameditation => ameditation.time)
-
-  // function totalTime(arr) {
+    // useEffect(() => {
+    //   const time = meditation.map(ameditation => ameditation.time)
+    //  document.title = totalTime(time)
+    // }, [])
   
-  //   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  
 
-  //   return arr.reduce(reducer) / 60;
+  function totalTime(arr) {
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    let totalTime = arr.reduce(reducer) / 60;
+    return totalTime
+    }
+
     
 
-  // }
-  // const finalTime = totalTime(time)
-  // console.log(finalTime)
- 
+    return (
 
-  return (
+      <div className="column">
+        <div className="columns is-centered m-5">
+          <ul>
+            {meditation.map(ameditation => {
+              return <li key={ameditation.id} className="has-text-centered m-4"> <h2 className="title is-5">
+                {ameditation.meditation_name}
+              </h2>
+                <p className="subtitle"> Time: {ameditation.time} </p>
+                <p className="subtitle">Date: {ameditation.date} </p>
 
-    <div className="column">
-      <div className="columns is-centered m-5">
-        <ul>
-          {meditation.map(ameditation => {
-            return <li key={ameditation.id} className="has-text-centered m-4"> <h2 className="title is-5">
-              {ameditation.meditation_name}
-            </h2>
-              <p className="subtitle"> Time: {ameditation.time} </p>
-              <p className="subtitle">Date: {ameditation.date} </p>
+              </li>
 
-            </li>
+            })}
+          </ul>
 
-          })}
-        </ul>
-        
+        </div>
+        Total Time: 
       </div>
-          {/* Total Time: {totalTime(finalTime)} */}
-    </div>
-  )
-}
+    )
+  }
 
-export default ViewMeditation
+  export default ViewMeditation
