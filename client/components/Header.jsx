@@ -21,7 +21,7 @@ const Header = () => {
 
           <Link to={'/addUser'}>
             <div className="navbar-item">
-              Add User
+             <p className="subtitle has-text-white"> Add User </p> 
       </div>
           </Link>
 

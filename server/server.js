@@ -8,6 +8,8 @@ server.use(express.static(path.join(__dirname, 'public')))
 server.use(express.json())
 
 server.use('/v1/meditationRoutes', meditationRoutes)
+server.use('/v1/meditationRoutes/addMeditation', meditationRoutes)
+server.use('/v1/meditationRoutes/meditations', meditationRoutes)
 server.use('/v1/*', (req, res) => res.sendStatus(404))
 
 server.get('*', (req, res) => {
