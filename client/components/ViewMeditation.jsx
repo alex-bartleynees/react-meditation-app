@@ -23,7 +23,6 @@ const ViewMeditation = (props) => {
     // }, [])
   
   
-
   function totalTime(arr) {
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
