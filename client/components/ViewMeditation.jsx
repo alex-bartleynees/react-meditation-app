@@ -1,28 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
-import { getAllMeditations } from '../api/index'
+
+import { getUsers } from '../actions/actions'
 
 const ViewMeditation = (props) => {
 
   const id = props.match.params.id
-
-  const [meditation, setMeditation] = useState([])
- 
-
-  useEffect(() => {
-    getAllMeditations()
-      .then((res) => {
-        setMeditation(res.filter(ameditation => ameditation.user_id == id))
-      })
-  }, [])
-
-
-    // useEffect(() => {
-    //   const time = meditation.map(ameditation => ameditation.time)
-    //  document.title = totalTime(time)
-    // }, [])
   
-  
+
   function totalTime(arr) {
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -56,4 +42,4 @@ const ViewMeditation = (props) => {
     )
   }
 
-  export default ViewMeditation
+  export default connect()(ViewMeditation)

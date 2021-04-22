@@ -14,7 +14,8 @@
     "knex": "knex --knexfile server/db/knexfile.js",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint . --fix",
-    "start": "node server"
+    "start": "node server",
+    "test": "jest --watchAll --verbose"
   },
   "keywords": [
     "fullstack"

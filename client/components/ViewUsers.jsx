@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import {getAllUsers} from '../api/index'
-
-const ViewUsers = () => {
+import { getUsers } from '../actions/actions'
 
 
-  const [users, setUsers] = useState([])
+const ViewUsers = ({dispatch}) => {
 
-  useEffect(() => {
-    getAllUsers()
-        .then((res) => {
-            setUsers(res)
-        })
-}, [])
-
+  dispatch(getUsers())
 
   return (
 
@@ -32,9 +25,7 @@ const ViewUsers = () => {
 
   <div className="column has-text-centered">
   <ul>
-   {users.map(auser => {
-      return <Link key={auser.id} to={`/meditation/${auser.id}`}>  <div className="column has-text-centered"><li className="button is-success"  key={auser.id}>{auser.name} </li> </div>  </Link> 
-    })}
+  
     
     </ul>
   </div>
@@ -46,4 +37,4 @@ const ViewUsers = () => {
   )
 }
 
-export default ViewUsers
+export default connect()(ViewUsers)
