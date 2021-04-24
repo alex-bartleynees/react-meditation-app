@@ -14,22 +14,46 @@ const Header = () => {
             <img src='./images/buddha.png' width="50" height="50" />
           </div>
         </Link>
+
+
       </div>
 
-      <div id="navbar" className="navbar-menu is-active">
+      <div class="navbar-dropdown">
+
+        <Link to={"/addUser"}><p className=" has-text-white navbar-item">
+          Add User
+      </p>
+        </Link>
+        <Link to={"/addMeditation"}><p className=" has-text-white navbar-item">
+          Add Meditation
+      </p>
+        </Link>
+        <Link to={'/viewUsers'}>
+          <p className="has-text-white navbar-item">
+            View Meditations
+      </p>
+        </Link>
+        <Link to={"/delete"}> <p className=" has-text-white navbar-item">
+          Delete User
+      </p>
+        </Link>
+      </div>
+
+
+      <div id="navbar" className="navbar-menu">
         <div className="navbar-start">
 
 
-          <Link to={"/addUser"}><p href="/addUser" className=" has-text-white navbar-item">
+          <Link to={"/addUser"}><p className=" has-text-white navbar-item">
             Add User
       </p>
-      </Link>
+          </Link>
 
 
           <Link to={"/addMeditation"}><p className=" has-text-white navbar-item">
             Add Meditation
       </p>
-      </Link>
+          </Link>
 
           <Link to={'/viewUsers'}>
             <p className="has-text-white navbar-item">
@@ -37,10 +61,10 @@ const Header = () => {
       </p>
           </Link>
 
-         <Link to={"/delete"}> <p className=" has-text-white navbar-item">
+          <Link to={"/delete"}> <p className=" has-text-white navbar-item">
             Delete User
       </p>
-      </Link>
+          </Link>
 
 
         </div>

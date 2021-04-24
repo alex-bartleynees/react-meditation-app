@@ -23,7 +23,6 @@ export function addMeditation (meditation) {
 export function getAllUsers () {
   return request.get('/v1/meditationRoutes')
   .then(response => {
-    console.log('api', response.body)
   return response.body})
   .catch(err => {return "the error is: ", err.message})
 
