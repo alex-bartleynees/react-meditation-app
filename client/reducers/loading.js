@@ -5,6 +5,9 @@ function loadingReducer (state = false, action) {
       case 'RECEIVE_USERS':
         return false
 
+      case 'ADD_USER':
+        return false
+        
         default:
       return state
   }

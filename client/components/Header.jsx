@@ -19,11 +19,11 @@ const Header = () => {
       <div id="navbar" className="navbar-menu is-active">
         <div className="navbar-start">
 
-          <Link to={'/addUser'}>
-            <div className="navbar-item">
-             <p className="subtitle has-text-white"> Add User </p> 
-      </div>
-          </Link>
+        
+        <a href="/addUser" className="navbar-item">
+              Add User 
+      </a>
+         
 
 
           <a href="/addMeditation" className="navbar-item">

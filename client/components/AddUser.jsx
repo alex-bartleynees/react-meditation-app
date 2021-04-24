@@ -1,9 +1,11 @@
  import React, { useState } from 'react'
  import { useHistory } from 'react-router-dom'
+ import { connect } from 'react-redux' 
 
- import {addUser} from '../api/index'
+import { addNewUser } from '../actions/actions'
 
-const AddUser = () => {
+
+const AddUser = ({dispatch, users}) => {
 
   let history = useHistory()
 
@@ -23,10 +25,11 @@ const AddUser = () => {
     const newUser = {
       'name': user
     }
-
-    addUser(newUser)
+    dispatch(addNewUser(newUser))
     navigateToHome()
   }
+
+
 
   return (
 
@@ -61,4 +64,11 @@ const AddUser = () => {
   )
 }
 
-export default AddUser
+const mapStateToProps = (globalState) => {
+  return {
+    users: globalState.users
+  }
+}
+
+
+export default connect(mapStateToProps)(AddUser)

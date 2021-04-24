@@ -7,6 +7,7 @@ import AddUser from './AddUser'
 import AddMeditation from './AddMeditation'
 import ViewUsers from './ViewUsers'
 import ViewMeditation from './ViewMeditation'
+import DeleteUser from './DeleteUser'
 
 
 function AppRoutes(props) {
@@ -15,31 +16,19 @@ function AppRoutes(props) {
   return (
     <div>
       <Switch>
-        <Route exact path='/' render={(routerProps) => (
-          <Home
-            {...routerProps} />
-        )} />
+        <Route exact path='/' component={Home} />
+    
 
-        <Route exact path='/addUser' render={(routerProps) => (
-          <AddUser
-            {...routerProps} />
-        )} />
+        <Route exact path='/addUser' component={AddUser} />
+     
 
-        <Route exact path='/addMeditation' render={(routerProps) => (
-          <AddMeditation
-            {...routerProps} />
-        )} />
+        <Route exact path='/addMeditation' component={AddMeditation} />
 
-        <Route exact path='/viewUsers' render={(routerProps) => (
-          <ViewUsers
-            {...routerProps} />
-        )} />
+        <Route exact path='/viewUsers' component={ViewUsers} />
 
-        <Route path='/meditation/:id' render={(routerProps) => (
-          <ViewMeditation
-            {...routerProps} />
-        )} />
+        <Route path='/meditation/:id' component={ViewMeditation} />
 
+        <Route path='/delete' component={DeleteUser} />
 
       </Switch>
     </div>

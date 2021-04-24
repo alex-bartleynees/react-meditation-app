@@ -3,11 +3,18 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { getUsers } from '../actions/actions'
+import { viewMeditation } from '../actions/actions'
 
 
-const ViewUsers = ({dispatch}) => {
 
-  dispatch(getUsers())
+const ViewUsers = ({ dispatch, users }) => {
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [])
+
+  dispatch(viewMeditation())
+  
 
   return (
 
@@ -25,6 +32,11 @@ const ViewUsers = ({dispatch}) => {
 
   <div className="column has-text-centered">
   <ul>
+
+  {users.map(auser => {
+      return <Link key={auser.id} to={`/meditation/${auser.id}`}>  <div className="column has-text-centered"><li className="button is-success"  key={auser.id}>{auser.name} </li> </div>  </Link> 
+    })}
+    
   
     
     </ul>
@@ -37,4 +49,11 @@ const ViewUsers = ({dispatch}) => {
   )
 }
 
-export default connect()(ViewUsers)
+const mapStateToProps = (globalState) => {
+  return {
+    users: globalState.users
+  }
+}
+
+
+export default connect(mapStateToProps)(ViewUsers)

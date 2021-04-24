@@ -1,6 +1,7 @@
 const express = require('express')
 
 const db = require('../db/db')
+const { response } = require('../server')
 
 const router = express.Router()
 
@@ -30,7 +31,10 @@ router.post('/', (req,res) => {
 
   db.addUser(user)
   .then((user) => {
-    res.json(user)
+    return db.getUserbyId(user)
+    .then((userName) => {
+      res.json(userName)
+    })
   })
   .catch(err => {return "the error is: ", err.message})
 

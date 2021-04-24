@@ -1,5 +1,5 @@
 {
-  "name": "charlottes-web-log-api",
+  "name": "meditation-app",
   "version": "0.2.0",
   "description": "A spider's blog about her web",
   "repository": "https://github.com/dev-academy-challenges/charlottes-web-log-api.git",
@@ -40,7 +40,7 @@
     "react-redux": "^7.2.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "sqlite3": "^4.2.0"
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.10.3",
