@@ -9,11 +9,11 @@ import { viewMeditation } from '../actions/actions'
 
 const ViewUsers = ({ dispatch, users }) => {
 
-  useEffect(() => {
-    dispatch(getUsers())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getUsers())
+  // }, [])
 
-  dispatch(viewMeditation())
+  // dispatch(viewMeditation())
   
 
   return (

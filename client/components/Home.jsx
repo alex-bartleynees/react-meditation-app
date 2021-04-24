@@ -1,11 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+
 import AddUser from './AddUser'
 import DeleteUser from './DeleteUser'
-import ViewMeditation from './ViewMeditation'
 import ViewUsers from './ViewUsers'
 
 
-const Home = () => {
+import { getUsers } from '../actions/actions'
+import { viewMeditation } from '../actions/actions'
+
+const Home = ({dispatch}) => {
+
+  dispatch(getUsers())
+  dispatch(viewMeditation())
 
 
   return (
@@ -25,4 +33,4 @@ const Home = () => {
   )
 }
 
-export default (Home)
+export default connect()(Home)

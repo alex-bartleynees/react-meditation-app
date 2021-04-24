@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { viewMeditation } from '../actions/actions'
-
-
 
 const ViewMeditation = ({meditations, match}) => {
 
   const id = match.params.id
 
-
-  // useEffect(() => {
-  //   dispatch(viewMeditation())
-  // }, [])
-  
   const meditationById = meditations.filter(meditation => meditation.user_id == id)
   console.log(meditationById)
 

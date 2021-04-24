@@ -5,7 +5,7 @@
 import { addNewUser } from '../actions/actions'
 
 
-const AddUser = ({dispatch, users}) => {
+const AddUser = ({dispatch}) => {
 
   let history = useHistory()
 
@@ -64,11 +64,5 @@ const AddUser = ({dispatch, users}) => {
   )
 }
 
-const mapStateToProps = (globalState) => {
-  return {
-    users: globalState.users
-  }
-}
 
-
-export default connect(mapStateToProps)(AddUser)
+export default connect()(AddUser)
