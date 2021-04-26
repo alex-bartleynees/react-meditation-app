@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux'
-import { deleteAUser } from '../actions/actions'
+import { useHistory } from 'react-router-dom'
+import { deleteUserName, deleteAUser } from '../actions/actions'
 
 const DeleteUser = ({dispatch}) => {
+
+  let history = useHistory()
 
   const [user, setUser] = useState('')
 
@@ -10,10 +13,20 @@ const DeleteUser = ({dispatch}) => {
     setUser(e.target.value)
   }
 
+  const navigateToHome = () => {
+
+    return history.push('/')
+}
+
+
   const submitForm = (e) => {
     e.preventDefault() 
+    const userName = {
+      name: user
+    }
+    dispatch(deleteUserName(userName))
     dispatch(deleteAUser(user))
-
+    navigateToHome()
   }
 
   return (

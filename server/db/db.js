@@ -18,6 +18,17 @@ function getNameId(obj, db = connection) {
 }
 
 
+function getUserByName (obj, db = connection) {
+  return db('users')
+    .where('name', obj)
+    .select()
+    .catch((err) => {
+      console.log(err.message)
+    })
+}
+
+
+
 function addMeditation(obj, db = connection) {
   return db('meditation')
     .insert(obj)
@@ -51,6 +62,16 @@ function getAllMeditations (db = connection) {
   })
 }
 
+function deleteUser(obj, db = connection) {
+  return db('users')
+    .where('name', obj.name)
+    .del()
+    .catch((err) => {
+      console.log(err.message)
+    })
+}
+
+
 
 
 module.exports = {
@@ -60,4 +81,6 @@ module.exports = {
   getAllUsers,
   getUserbyId,
   getAllMeditations,
+  deleteUser, 
+  getUserByName,
 }

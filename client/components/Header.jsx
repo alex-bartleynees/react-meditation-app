@@ -18,7 +18,7 @@ const Header = () => {
 
       </div>
 
-      <div class="navbar-dropdown">
+      <div className="navbar-dropdown">
 
         <Link to={"/addUser"}><p className=" has-text-white navbar-item">
           Add User

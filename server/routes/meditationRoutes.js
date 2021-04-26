@@ -1,7 +1,6 @@
 const express = require('express')
 
 const db = require('../db/db')
-const { response } = require('../server')
 
 const router = express.Router()
 
@@ -14,6 +13,7 @@ router.get('/', (req,res) => {
     return "the error is: ", err.message
   })
 })
+
 
 router.get('/meditations', (req,res) => {
   db.getAllMeditations()
@@ -29,12 +29,9 @@ router.get('/meditations', (req,res) => {
 router.post('/', (req,res) => {
   const user = req.body
 
-  db.addUser(user)
-  .then((user) => {
-    return db.getUserbyId(user)
-    .then((userName) => {
-      res.json(userName)
-    })
+  return db.addUser(user)
+  .then(user => {
+    res.json(user)
   })
   .catch(err => {return "the error is: ", err.message})
 
@@ -63,5 +60,17 @@ router.post('/addMeditation', (req,res) => {
     })
       .catch(err => {return "the error is: ", err.message})
     })
- 
+
+router.delete('/', (req,res) => {
+  const user = req.body
+
+  return db.deleteUser(user)
+    .then((deleteData) => {
+      res.json(deleteData)
+    })
+    .catch(err => {
+      return "the error is: ", err.message
+    })
+})
+
 module.exports = router

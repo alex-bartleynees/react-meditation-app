@@ -1,5 +1,5 @@
 
-import { getAllUsers, addUser, getAllMeditations } from '../api'
+import { getAllUsers, addUser, getAllMeditations, deleteUser } from '../api'
 
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
@@ -7,6 +7,7 @@ export const ADD_USER = 'ADD_USER'
 export const VIEW_MEDITATION = 'VIEW_MEDITATION'
 export const DELETE_USER = 'DELETE_USER'
 export const SHOW_ERROR = 'SHOW_ERROR'
+export const HIDE_ERROR = 'HIDE_ERROR'
 
 export const recieveUsers = (users) => {
   return {
@@ -15,12 +16,6 @@ export const recieveUsers = (users) => {
   }
 }
 
-export const addAUser = (user) => {
-  return {
-    type: ADD_USER,
-    user: user[0]
-  }
-}
 
 export const viewAMeditation = (meditation) => {
   return {
@@ -64,7 +59,6 @@ export const getUsers = () => {
   return (dispatch) => getAllUsers()
     .then((res) => {
       dispatch(recieveUsers(res))
-      return null
     })
     .catch(err => {
       dispatch(showError(err.message))
@@ -74,11 +68,6 @@ export const getUsers = () => {
 
 export const addNewUser = (user) => {
   return (dispatch) => addUser(user)
-    .then((res) => {
-      console.log(res)
-      dispatch(addAUser(res))
-      return null
-    })
     .catch(err => {
       dispatch(showError(err.message))
     })
@@ -89,9 +78,16 @@ export const viewMeditation = () => {
   return (dispatch) => getAllMeditations()
     .then((res) => {
       dispatch(viewAMeditation(res))
-      return null
     })
     .catch(err => {
       dispatch(showError(err.message))
     })
+}
+
+export const deleteUserName = (user) => {
+  return (dispatch) => deleteUser(user)
+  .catch(err => {
+    dispatch(showError(err.message))
+  })
+
 }

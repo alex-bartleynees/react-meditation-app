@@ -34,3 +34,12 @@ export function getAllMeditations () {
   .catch(err => {return "the error is: ", err.message})
 
 }
+
+export function deleteUser (user) {
+  return request.delete('/v1/meditationRoutes')
+  .send(user)
+  .then(response => response.body)
+  .catch(err => {return "the error is: ", err.message})
+
+
+}

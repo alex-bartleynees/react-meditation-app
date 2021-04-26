@@ -1,30 +1,41 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
+import ErrorPage from './ErrorPage'
 
 
-const ViewMeditation = ({meditations, match}) => {
+const ViewMeditation = ({ meditations, match }) => {
 
   const id = match.params.id
 
+  let history = useHistory()
+
+  const navigateToUsers = () => {
+
+    return history.push('/viewUsers')
+  }
+
+
   const meditationById = meditations.filter(meditation => meditation.user_id == id)
-  console.log(meditationById)
 
   const meditationByTime = meditationById.map(ameditation => ameditation.time)
-  console.log(meditationByTime)
 
   function totalTime(arr) {
 
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
     let totalTime = arr.reduce(reducer) / 60;
-    console.log(totalTime)
-    return totalTime
-    }
+    let roundNumber = totalTime.toFixed(2)
+    return roundNumber
+  }
 
-    
 
-    return (
 
+  return (
+    <>
+      {meditationById.length > 0 ?
+      <div>
       <div className="column">
         <div className="columns is-centered m-5">
           <ul>
@@ -32,27 +43,43 @@ const ViewMeditation = ({meditations, match}) => {
               return <li key={ameditation.id} className="has-text-centered m-4"> <h2 className="title is-5">
                 {ameditation.meditation_name}
               </h2>
-                <p className="subtitle"> Time: {ameditation.time} </p>
+                <p className="subtitle"> Time: {ameditation.time} minutes </p>
                 <p className="subtitle">Date: {ameditation.date} </p>
 
-              </li> })}
+              </li>
+            })}
 
-             
+
           </ul>
 
         </div>
         <div className="columns is-centered m-5">
-        <p className="subtitle has-text-centered">Total Time: {totalTime(meditationByTime)} hours </p>
+          <p className="subtitle has-text-centered">Total Time: {totalTime(meditationByTime)} hours </p>
         </div>
       </div>
-    )
-  }
 
-  const mapStateToProps = (globalState) => {
-    return {
-      meditations: globalState.meditations
-    }
-  }
-  
+      <div className="column has-text-centered">
+            <div className="field">
+              <div className="control">
+                <button className="button is-success" onClick={navigateToUsers}>Back</button>
+              </div>
+            </div>
+          </div>
 
-  export default connect(mapStateToProps)(ViewMeditation)
+      </div>
+      :
+      <ErrorPage />
+          }
+    </>
+  )
+
+}
+
+const mapStateToProps = (globalState) => {
+  return {
+    meditations: globalState.meditations
+  }
+}
+
+
+export default connect(mapStateToProps)(ViewMeditation)

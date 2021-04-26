@@ -1,21 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { getUsers } from '../actions/actions'
-import { viewMeditation } from '../actions/actions'
 
+const ViewUsers = ({ users }) => {
 
-
-const ViewUsers = ({ dispatch, users }) => {
-
-  // useEffect(() => {
-  //   dispatch(getUsers())
-  // }, [])
-
-  // dispatch(viewMeditation())
-  
-
+  const filteredUsers = users.filter(el => el !== null)
   return (
 
 <div>
@@ -33,7 +23,7 @@ const ViewUsers = ({ dispatch, users }) => {
   <div className="column has-text-centered">
   <ul>
 
-  {users.map(auser => {
+  {filteredUsers.map(auser => {
       return <Link key={auser.id} to={`/meditation/${auser.id}`}>  <div className="column has-text-centered"><li className="button is-success"  key={auser.id}>{auser.name} </li> </div>  </Link> 
     })}
     
