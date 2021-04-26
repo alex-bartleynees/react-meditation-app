@@ -27,6 +27,7 @@ const AddUser = ({dispatch}) => {
     }
     dispatch(addNewUser(newUser))
     navigateToHome()
+    setUser('')
   }
 
 
@@ -43,7 +44,7 @@ const AddUser = ({dispatch}) => {
               <div className="control">
                 <label htmlFor="userName" name="userName" className="label is-large">
                   User Name:
-              <input className="input is-link is-rounded spacing is-large" type="text" name="userName" onChange={(e) => update(e)}/>
+              <input className="input is-link is-rounded spacing is-large" type="text" placeholder="Enter User Name" name="userName" value={user} onChange={(e) => update(e)}/>
                 </label>
               </div>
             </div>

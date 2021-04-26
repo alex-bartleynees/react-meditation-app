@@ -27,6 +27,7 @@ const DeleteUser = ({dispatch}) => {
     dispatch(deleteUserName(userName))
     dispatch(deleteAUser(user))
     navigateToHome()
+    setUser('')
   }
 
   return (
@@ -40,7 +41,7 @@ const DeleteUser = ({dispatch}) => {
               <div className="control">
                 <label htmlFor="delete" name="delete" className="label is-large">
                   User to Delete:
-    <input className="input is-link is-rounded spacing is-large" type="text" name="delete" placeholder="Enter User Name" onChange={(e) => update(e)} />
+    <input className="input is-link is-rounded spacing is-large" type="text" name="delete" placeholder="Enter User Name to delete" value={user} onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
