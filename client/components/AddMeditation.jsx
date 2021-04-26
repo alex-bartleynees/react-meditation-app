@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { addMeditation } from '../api/index'
+import {addAMeditation} from '../actions/actions'
 
-const AddMeditation = () => {
+const AddMeditation = ({dispatch}) => {
   let history = useHistory()
 
   const [state, setState] = useState('')
@@ -20,7 +21,7 @@ const AddMeditation = () => {
   const submitForm = (e) => {
     e.preventDefault()
     const meditation = state
-    addMeditation(meditation)
+    dispatch(addAMeditation(meditation))
     navigateToHome()
 
   }
@@ -96,4 +97,4 @@ const AddMeditation = () => {
   )
 }
 
-export default AddMeditation
+export default connect()(AddMeditation)

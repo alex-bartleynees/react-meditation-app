@@ -1,5 +1,5 @@
 
-import { getAllUsers, addUser, getAllMeditations, deleteUser } from '../api'
+import { getAllUsers, addUser, getAllMeditations, deleteUser, addMeditation } from '../api'
 
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
@@ -90,4 +90,11 @@ export const deleteUserName = (user) => {
     dispatch(showError(err.message))
   })
 
+}
+
+export const addAMeditation = (meditation) => {
+  return (dispatch) => addMeditation(meditation)
+  .catch(err => {
+    dispatch(showError(err.message))
+  })
 }
