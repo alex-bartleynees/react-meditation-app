@@ -1,7 +1,7 @@
 
 import { SHOW_ERROR, HIDE_ERROR } from '../actions/actions'
 
-function errorMessage (state = '', action) {
+function errorMessage(state = '', action) {
   switch (action.type) {
     case SHOW_ERROR:
       return action.errorMessage

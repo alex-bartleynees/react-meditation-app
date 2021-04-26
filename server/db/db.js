@@ -6,7 +6,7 @@ function addUser(obj, db = connection) {
     .catch((err) => {
       console.log(err.message)
     })
-}  
+}
 
 function getNameId(obj, db = connection) {
   return db('users')
@@ -18,7 +18,7 @@ function getNameId(obj, db = connection) {
 }
 
 
-function getUserByName (obj, db = connection) {
+function getUserByName(obj, db = connection) {
   return db('users')
     .where('name', obj)
     .select()
@@ -46,20 +46,20 @@ function getAllUsers(db = connection) {
     })
 }
 
-function getUserbyId (id, db = connection) {
+function getUserbyId(id, db = connection) {
   return db('users')
-  .where('id', id)
-  .catch((err) => {
-    console.log(err.message)
-  })
+    .where('id', id)
+    .catch((err) => {
+      console.log(err.message)
+    })
 }
 
-function getAllMeditations (db = connection) {
+function getAllMeditations(db = connection) {
   return db('meditation')
-  .select()
-  .catch((err) => {
-    console.log(err.message)
-  })
+    .select()
+    .catch((err) => {
+      console.log(err.message)
+    })
 }
 
 function deleteUser(obj, db = connection) {
@@ -81,6 +81,6 @@ module.exports = {
   getAllUsers,
   getUserbyId,
   getAllMeditations,
-  deleteUser, 
+  deleteUser,
   getUserByName,
 }

@@ -4,43 +4,43 @@ const db = require('../db/db')
 
 const router = express.Router()
 
-router.get('/', (req,res) => {
+router.get('/', (req, res) => {
   db.getAllUsers()
-  .then(users => {
-    res.json(users)
-  })
-  .catch(err => {
-    return "the error is: ", err.message
-  })
+    .then(users => {
+      res.json(users)
+    })
+    .catch(err => {
+      return "the error is: ", err.message
+    })
 })
 
 
-router.get('/meditations', (req,res) => {
+router.get('/meditations', (req, res) => {
   db.getAllMeditations()
-  .then(meditations => {
-    res.json(meditations)
-  })
-  .catch(err => {
-    return "the error is: ", err.message
-  })
+    .then(meditations => {
+      res.json(meditations)
+    })
+    .catch(err => {
+      return "the error is: ", err.message
+    })
 })
 
 
-router.post('/', (req,res) => {
+router.post('/', (req, res) => {
   const user = req.body
 
   return db.addUser(user)
-  .then(user => {
-    res.json(user)
-  })
-  .catch(err => {return "the error is: ", err.message})
+    .then(user => {
+      res.json(user)
+    })
+    .catch(err => { return "the error is: ", err.message })
 
-  
+
 })
 
-router.post('/addMeditation', (req,res) => {
+router.post('/addMeditation', (req, res) => {
   const name = req.body.name
-   
+
 
   db.getNameId(name)
     .then(id => {
@@ -54,14 +54,14 @@ router.post('/addMeditation', (req,res) => {
       }
 
       return db.addMeditation(meditationData)
-      .then((meditationData) => {
-        res.json(meditationData)
-      })
+        .then((meditationData) => {
+          res.json(meditationData)
+        })
     })
-      .catch(err => {return "the error is: ", err.message})
-    })
+    .catch(err => { return "the error is: ", err.message })
+})
 
-router.delete('/', (req,res) => {
+router.delete('/', (req, res) => {
   const user = req.body
 
   return db.deleteUser(user)

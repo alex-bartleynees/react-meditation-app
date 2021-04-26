@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import {addAMeditation} from '../actions/actions'
+import { addAMeditation } from '../actions/actions'
 
-const AddMeditation = ({dispatch}) => {
+const AddMeditation = ({ dispatch }) => {
   let history = useHistory()
 
   const [state, setState] = useState('')

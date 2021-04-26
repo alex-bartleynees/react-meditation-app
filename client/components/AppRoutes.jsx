@@ -17,19 +17,11 @@ function AppRoutes(props) {
     <div>
       <Switch>
         <Route exact path='/' component={Home} />
-    
-
         <Route exact path='/addUser' component={AddUser} />
-     
-
         <Route exact path='/addMeditation' component={AddMeditation} />
-
         <Route exact path='/viewUsers' component={ViewUsers} />
-
         <Route path='/meditation/:id' component={ViewMeditation} />
-
         <Route path='/delete' component={DeleteUser} />
-
       </Switch>
     </div>
   )

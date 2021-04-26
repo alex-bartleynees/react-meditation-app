@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { deleteUserName, deleteAUser } from '../actions/actions'
 
-const DeleteUser = ({dispatch}) => {
+const DeleteUser = ({ dispatch }) => {
 
   let history = useHistory()
 
@@ -16,11 +16,11 @@ const DeleteUser = ({dispatch}) => {
   const navigateToHome = () => {
 
     return history.push('/')
-}
+  }
 
 
   const submitForm = (e) => {
-    e.preventDefault() 
+    e.preventDefault()
     const userName = {
       name: user
     }
@@ -41,7 +41,7 @@ const DeleteUser = ({dispatch}) => {
               <div className="control">
                 <label htmlFor="delete" name="delete" className="label is-large">
                   User to Delete:
-    <input className="input is-link is-rounded spacing is-large" type="text" name="delete" placeholder="Enter User Name to delete" value={user} onChange={(e) => update(e)} />
+                    <input className="input is-link is-rounded spacing is-large" type="text" name="delete" placeholder="Enter User Name to delete" value={user} onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>

@@ -35,41 +35,41 @@ const ViewMeditation = ({ meditations, match }) => {
   return (
     <>
       {meditationById.length > 0 ?
-      <div>
-      <div className="column">
-        <div className="columns is-centered m-5">
-          <ul>
-            {meditationById.map(ameditation => {
-              return <li key={ameditation.id} className="has-text-centered m-4"> <h2 className="title is-5">
-                {ameditation.meditation_name}
-              </h2>
-                <p className="subtitle"> Time: {ameditation.time} minutes </p>
-                <p className="subtitle">Date: {ameditation.date} </p>
 
-              </li>
-            })}
+        <div>
+          <div className="column">
+            <div className="columns is-centered m-5">
+              <ul>
+                {meditationById.map(ameditation => {
+                  return <li key={ameditation.id} className="has-text-centered m-4">
+                    <h2 className="title is-5">
+                      {ameditation.meditation_name}
+                    </h2>
+                    <p className="subtitle"> Time: {ameditation.time} minutes </p>
+                    <p className="subtitle">Date: {ameditation.date} </p>
+                  </li>
+                })}
+              </ul>
+            </div>
 
+            <div className="columns is-centered m-5">
+              <p className="subtitle has-text-centered">Total Time: {totalTime(meditationByTime)} hours </p>
+            </div>
+          </div>
 
-          </ul>
-
-        </div>
-        <div className="columns is-centered m-5">
-          <p className="subtitle has-text-centered">Total Time: {totalTime(meditationByTime)} hours </p>
-        </div>
-      </div>
-
-      <div className="column has-text-centered">
+          <div className="column has-text-centered">
             <div className="field">
               <div className="control">
                 <button className="button is-success" onClick={navigateToUsers}>Back</button>
               </div>
             </div>
           </div>
+        </div>
 
-      </div>
-      :
-      <ErrorPage />
-          }
+        :
+
+        <ErrorPage />
+      }
     </>
   )
 
