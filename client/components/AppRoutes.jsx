@@ -8,6 +8,7 @@ import AddMeditation from './AddMeditation'
 import ViewUsers from './ViewUsers'
 import ViewMeditation from './ViewMeditation'
 import DeleteUser from './DeleteUser'
+import Timer from './Timer'
 
 function AppRoutes (props) {
   return (
@@ -19,6 +20,7 @@ function AppRoutes (props) {
         <Route exact path='/viewUsers' component={ViewUsers} />
         <Route path='/meditation/:id' component={ViewMeditation} />
         <Route path='/delete' component={DeleteUser} />
+        <Route path ='/timer' component={Timer} />
       </Switch>
     </div>
   )
