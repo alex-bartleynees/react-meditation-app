@@ -4,8 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { deleteUserName, deleteAUser } from '../actions/actions'
 
 const DeleteUser = ({ dispatch }) => {
-
-  let history = useHistory()
+  const history = useHistory()
 
   const [user, setUser] = useState('')
 
@@ -14,10 +13,8 @@ const DeleteUser = ({ dispatch }) => {
   }
 
   const navigateToHome = () => {
-
     return history.push('/')
   }
-
 
   const submitForm = (e) => {
     e.preventDefault()
@@ -41,12 +38,11 @@ const DeleteUser = ({ dispatch }) => {
               <div className="control">
                 <label htmlFor="delete" name="delete" className="label is-large">
                   User to Delete:
-                    <input className="input is-link is-rounded spacing is-large" type="text" name="delete" placeholder="Enter User Name to delete" value={user} onChange={(e) => update(e)} />
+                  <input className="input is-link is-rounded spacing is-large" type="text" name="delete" placeholder="Enter User Name to delete" value={user} onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
           </div>
-
 
           <div className="column has-text-centered">
             <div className="field">
@@ -67,6 +63,5 @@ const mapStateToProps = (globalState) => {
     users: globalState.users
   }
 }
-
 
 export default connect(mapStateToProps)(DeleteUser)

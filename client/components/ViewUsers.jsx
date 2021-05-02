@@ -2,9 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-
 const ViewUsers = ({ users }) => {
-
   const filteredUsers = users.filter(el => el !== null)
   return (
 
@@ -19,7 +17,6 @@ const ViewUsers = ({ users }) => {
         <p className="subtitle"> Click on User to view Meditation data</p>
       </div>
 
-
       <div className="column has-text-centered">
         <ul>
 
@@ -32,12 +29,8 @@ const ViewUsers = ({ users }) => {
             </Link>
           })}
 
-
-
         </ul>
       </div>
-
-
 
     </div>
 
@@ -49,6 +42,5 @@ const mapStateToProps = (globalState) => {
     users: globalState.users
   }
 }
-
 
 export default connect(mapStateToProps)(ViewUsers)

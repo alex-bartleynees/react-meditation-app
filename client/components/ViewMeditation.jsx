@@ -4,39 +4,32 @@ import { useHistory } from 'react-router-dom'
 
 import ErrorPage from './ErrorPage'
 
-
 const ViewMeditation = ({ meditations, match }) => {
-
   const id = match.params.id
 
-  let history = useHistory()
+  const history = useHistory()
 
   const navigateToUsers = () => {
-
     return history.push('/viewUsers')
   }
-
 
   const meditationById = meditations.filter(meditation => meditation.user_id == id)
 
   const meditationByTime = meditationById.map(ameditation => ameditation.time)
 
-  function totalTime(arr) {
+  function totalTime (arr) {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue
 
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-    let totalTime = arr.reduce(reducer) / 60;
-    let roundNumber = totalTime.toFixed(2)
+    const totalTime = arr.reduce(reducer) / 60
+    const roundNumber = totalTime.toFixed(2)
     return roundNumber
   }
 
-
-
   return (
     <>
-      {meditationById.length > 0 ?
+      {meditationById.length > 0
 
-        <div>
+        ? <div>
           <div className="column">
             <div className="columns is-centered m-5">
               <ul>
@@ -66,13 +59,10 @@ const ViewMeditation = ({ meditations, match }) => {
           </div>
         </div>
 
-        :
-
-        <ErrorPage />
+        : <ErrorPage />
       }
     </>
   )
-
 }
 
 const mapStateToProps = (globalState) => {
@@ -80,6 +70,5 @@ const mapStateToProps = (globalState) => {
     meditations: globalState.meditations
   }
 }
-
 
 export default connect(mapStateToProps)(ViewMeditation)

@@ -1,17 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import AppRoutes from './AppRoutes'
 import Header from './Header'
 
-
-function App() {
-
+function App () {
   return (
     <>
       <Header />
       <AppRoutes />
-
-
     </>
   )
 }

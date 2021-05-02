@@ -4,10 +4,8 @@ import { connect } from 'react-redux'
 
 import { addNewUser } from '../actions/actions'
 
-
 const AddUser = ({ dispatch }) => {
-
-  let history = useHistory()
+  const history = useHistory()
 
   const [user, setUser] = useState('')
 
@@ -16,21 +14,18 @@ const AddUser = ({ dispatch }) => {
   }
 
   const navigateToHome = () => {
-
     return history.push('/')
   }
 
   const submitForm = (e) => {
     e.preventDefault()
     const newUser = {
-      'name': user
+      name: user
     }
     dispatch(addNewUser(newUser))
     navigateToHome()
     setUser('')
   }
-
-
 
   return (
 
@@ -44,12 +39,11 @@ const AddUser = ({ dispatch }) => {
               <div className="control">
                 <label htmlFor="userName" name="userName" className="label is-large">
                   User Name:
-              <input className="input is-link is-rounded spacing is-large" type="text" placeholder="Enter User Name" name="userName" value={user} onChange={(e) => update(e)} />
+                  <input className="input is-link is-rounded spacing is-large" type="text" placeholder="Enter User Name" name="userName" value={user} onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
           </div>
-
 
           <div className="column has-text-centered">
             <div className="field">
@@ -64,6 +58,5 @@ const AddUser = ({ dispatch }) => {
     </div>
   )
 }
-
 
 export default connect()(AddUser)

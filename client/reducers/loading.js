@@ -1,4 +1,4 @@
-function loadingReducer(state = false, action) {
+function loadingReducer (state = false, action) {
   switch (action.type) {
     case 'LOADING':
       return true

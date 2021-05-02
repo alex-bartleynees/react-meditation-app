@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import { addAMeditation } from '../actions/actions'
 
 const AddMeditation = ({ dispatch }) => {
-  let history = useHistory()
+  const history = useHistory()
 
   const [state, setState] = useState('')
 
@@ -14,7 +14,6 @@ const AddMeditation = ({ dispatch }) => {
   }
 
   const navigateToHome = () => {
-
     return history.push('/')
   }
 
@@ -23,7 +22,6 @@ const AddMeditation = ({ dispatch }) => {
     const meditation = state
     dispatch(addAMeditation(meditation))
     navigateToHome()
-
   }
 
   return (
@@ -37,19 +35,18 @@ const AddMeditation = ({ dispatch }) => {
               <div className="control">
                 <label htmlFor="name" name="name" className="label is-large">
                   User Name:
-                <input className="input is-link is-rounded spacing is-large" type="text" name="name" placeholder="Enter User Name" onChange={(e) => update(e)} />
+                  <input className="input is-link is-rounded spacing is-large" type="text" name="name" placeholder="Enter User Name" onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
           </div>
-
 
           <div className="column">
             <div className="field">
               <div className="control">
                 <label htmlFor="meditation" name="meditation" className="label is-large">
                   Type of Meditation:
-                <input className="input is-link is-rounded spacing is-large" type="text" name="meditation" placeholder="Enter Meditation" onChange={(e) => update(e)} />
+                  <input className="input is-link is-rounded spacing is-large" type="text" name="meditation" placeholder="Enter Meditation" onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
@@ -60,25 +57,22 @@ const AddMeditation = ({ dispatch }) => {
               <div className="control">
                 <label htmlFor="time" name="time" className="label is-large">
                   Time:
-                <input className="input is-link is-rounded spacing is-large" type="text" name="time" placeholder="Enter Number" onChange={(e) => update(e)} />
+                  <input className="input is-link is-rounded spacing is-large" type="text" name="time" placeholder="Enter Number" onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
           </div>
-
 
           <div className="column">
             <div className="field">
               <div className="control">
                 <label htmlFor="date" name="date" className="label is-large">
                   Date:
-                <input className="input is-link is-rounded spacing is-large" type="text" name="date" placeholder="Enter Date" onChange={(e) => update(e)} />
+                  <input className="input is-link is-rounded spacing is-large" type="text" name="date" placeholder="Enter Date" onChange={(e) => update(e)} />
                 </label>
               </div>
             </div>
           </div>
-
-
 
           <div className="column has-text-centered">
             <div className="field">
@@ -91,8 +85,6 @@ const AddMeditation = ({ dispatch }) => {
         </form>
       </div>
     </div>
-
-
 
   )
 }

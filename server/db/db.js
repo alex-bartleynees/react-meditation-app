@@ -1,14 +1,14 @@
 const config = require('./knexfile').development
 const connection = require('knex')(config)
 
-function addUser(obj, db = connection) {
+function addUser (obj, db = connection) {
   return db('users').insert(obj)
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function getNameId(obj, db = connection) {
+function getNameId (obj, db = connection) {
   return db('users')
     .where('name', obj)
     .select()
@@ -17,8 +17,7 @@ function getNameId(obj, db = connection) {
     })
 }
 
-
-function getUserByName(obj, db = connection) {
+function getUserByName (obj, db = connection) {
   return db('users')
     .where('name', obj)
     .select()
@@ -27,9 +26,7 @@ function getUserByName(obj, db = connection) {
     })
 }
 
-
-
-function addMeditation(obj, db = connection) {
+function addMeditation (obj, db = connection) {
   return db('meditation')
     .insert(obj)
     .select()
@@ -38,7 +35,7 @@ function addMeditation(obj, db = connection) {
     })
 }
 
-function getAllUsers(db = connection) {
+function getAllUsers (db = connection) {
   return db('users')
     .select()
     .catch((err) => {
@@ -46,7 +43,7 @@ function getAllUsers(db = connection) {
     })
 }
 
-function getUserbyId(id, db = connection) {
+function getUserbyId (id, db = connection) {
   return db('users')
     .where('id', id)
     .catch((err) => {
@@ -54,7 +51,7 @@ function getUserbyId(id, db = connection) {
     })
 }
 
-function getAllMeditations(db = connection) {
+function getAllMeditations (db = connection) {
   return db('meditation')
     .select()
     .catch((err) => {
@@ -62,7 +59,7 @@ function getAllMeditations(db = connection) {
     })
 }
 
-function deleteUser(obj, db = connection) {
+function deleteUser (obj, db = connection) {
   return db('users')
     .where('name', obj.name)
     .del()
@@ -70,9 +67,6 @@ function deleteUser(obj, db = connection) {
       console.log(err.message)
     })
 }
-
-
-
 
 module.exports = {
   addUser,
@@ -82,5 +76,5 @@ module.exports = {
   getUserbyId,
   getAllMeditations,
   deleteUser,
-  getUserByName,
+  getUserByName
 }

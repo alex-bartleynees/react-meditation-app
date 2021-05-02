@@ -7,40 +7,35 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getAllUsers()
     .then(users => {
-      res.json(users)
+      return res.json(users)
     })
     .catch(err => {
-      return "the error is: ", err.message
+      return 'the error is: ', err.message
     })
 })
-
 
 router.get('/meditations', (req, res) => {
   db.getAllMeditations()
     .then(meditations => {
-      res.json(meditations)
+      return res.json(meditations)
     })
     .catch(err => {
-      return "the error is: ", err.message
+      return 'the error is: ', err.message
     })
 })
-
 
 router.post('/', (req, res) => {
   const user = req.body
 
   return db.addUser(user)
     .then(user => {
-      res.json(user)
+      return res.json(user)
     })
-    .catch(err => { return "the error is: ", err.message })
-
-
+    .catch(err => { return 'the error is: ', err.message })
 })
 
 router.post('/addMeditation', (req, res) => {
   const name = req.body.name
-
 
   db.getNameId(name)
     .then(id => {
@@ -55,10 +50,10 @@ router.post('/addMeditation', (req, res) => {
 
       return db.addMeditation(meditationData)
         .then((meditationData) => {
-          res.json(meditationData)
+          return res.json(meditationData)
         })
     })
-    .catch(err => { return "the error is: ", err.message })
+    .catch(err => { return 'the error is: ', err.message })
 })
 
 router.delete('/', (req, res) => {
@@ -66,10 +61,10 @@ router.delete('/', (req, res) => {
 
   return db.deleteUser(user)
     .then((deleteData) => {
-      res.json(deleteData)
+      return res.json(deleteData)
     })
     .catch(err => {
-      return "the error is: ", err.message
+      return 'the error is: ', err.message
     })
 })
 

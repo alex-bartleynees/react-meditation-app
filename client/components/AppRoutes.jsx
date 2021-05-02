@@ -9,10 +9,7 @@ import ViewUsers from './ViewUsers'
 import ViewMeditation from './ViewMeditation'
 import DeleteUser from './DeleteUser'
 
-
-function AppRoutes(props) {
-
-
+function AppRoutes (props) {
   return (
     <div>
       <Switch>
