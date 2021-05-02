@@ -1,4 +1,3 @@
-
 import { getAllUsers, addUser, getAllMeditations, deleteUser, addMeditation } from '../api'
 
 export const RECEIVE_USERS = 'RECEIVE_USERS'
@@ -35,26 +34,26 @@ export const loading = () => {
   }
 }
 
-export function showError(errorMessage) {
+export function showError (errorMessage) {
   return {
     type: SHOW_ERROR,
     errorMessage: errorMessage
   }
 }
 
-export function hideError() {
+export function hideError () {
   return {
     type: HIDE_ERROR
   }
 }
 
-// thunk calling api function to access database 
+// thunk calling api function to access database
 // LET'S GET THUNKKY!
 
 export const getUsers = () => {
   return (dispatch) => getAllUsers()
     .then((res) => {
-      dispatch(recieveUsers(res))
+      return dispatch(recieveUsers(res))
     })
     .catch(err => {
       dispatch(showError(err.message))
@@ -71,7 +70,7 @@ export const addNewUser = (user) => {
 export const viewMeditation = () => {
   return (dispatch) => getAllMeditations()
     .then((res) => {
-      dispatch(viewAMeditation(res))
+      return dispatch(viewAMeditation(res))
     })
     .catch(err => {
       dispatch(showError(err.message))
@@ -83,7 +82,6 @@ export const deleteUserName = (user) => {
     .catch(err => {
       dispatch(showError(err.message))
     })
-
 }
 
 export const addAMeditation = (meditation) => {

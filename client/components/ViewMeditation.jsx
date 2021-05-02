@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import ErrorPage from './ErrorPage'
 
 const ViewMeditation = ({ meditations, match }) => {
-  const id = match.params.id
+  const id = parseInt(match.params.id)
 
   const history = useHistory()
 
@@ -13,7 +13,7 @@ const ViewMeditation = ({ meditations, match }) => {
     return history.push('/viewUsers')
   }
 
-  const meditationById = meditations.filter(meditation => meditation.user_id == id)
+  const meditationById = meditations.filter(meditation => meditation.user_id === id)
 
   const meditationByTime = meditationById.map(ameditation => ameditation.time)
 
