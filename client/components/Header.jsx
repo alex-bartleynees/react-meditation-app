@@ -31,6 +31,10 @@ const Header = () => {
             View Meditations
           </p>
         </Link>
+        <Link to={'/timer'}><p className=" has-text-white navbar-item">
+          Timer
+        </p>
+        </Link>
         <Link to={'/delete'}> <p className=" has-text-white navbar-item">
           Delete User
         </p>
@@ -54,6 +58,11 @@ const Header = () => {
             <p className="has-text-white navbar-item">
               View Meditations
             </p>
+          </Link>
+
+          <Link to={'/timer'}><p className=" has-text-white navbar-item">
+          Timer
+          </p>
           </Link>
 
           <Link to={'/delete'}> <p className=" has-text-white navbar-item">
