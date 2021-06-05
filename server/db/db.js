@@ -1,33 +1,33 @@
-const config = require('./knexfile').development
-const connection = require('knex')(config)
+const connection = require("./connection")
 
-function addUser (obj, db = connection) {
-  return db('users').insert(obj)
+function addUser(obj, db = connection) {
+  return db("users")
+    .insert(obj)
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function getNameId (obj, db = connection) {
-  return db('users')
-    .where('name', obj)
+function getNameId(obj, db = connection) {
+  return db("users")
+    .where("name", obj)
     .select()
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function getUserByName (obj, db = connection) {
-  return db('users')
-    .where('name', obj)
+function getUserByName(obj, db = connection) {
+  return db("users")
+    .where("name", obj)
     .select()
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function addMeditation (obj, db = connection) {
-  return db('meditation')
+function addMeditation(obj, db = connection) {
+  return db("meditation")
     .insert(obj)
     .select()
     .catch((err) => {
@@ -35,33 +35,33 @@ function addMeditation (obj, db = connection) {
     })
 }
 
-function getAllUsers (db = connection) {
-  return db('users')
+function getAllUsers(db = connection) {
+  return db("users")
     .select()
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function getUserbyId (id, db = connection) {
-  return db('users')
-    .where('id', id)
+function getUserbyId(id, db = connection) {
+  return db("users")
+    .where("id", id)
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function getAllMeditations (db = connection) {
-  return db('meditation')
+function getAllMeditations(db = connection) {
+  return db("meditation")
     .select()
     .catch((err) => {
       console.log(err.message)
     })
 }
 
-function deleteUser (obj, db = connection) {
-  return db('users')
-    .where('name', obj.name)
+function deleteUser(obj, db = connection) {
+  return db("users")
+    .where("name", obj.name)
     .del()
     .catch((err) => {
       console.log(err.message)
@@ -76,5 +76,5 @@ module.exports = {
   getUserbyId,
   getAllMeditations,
   deleteUser,
-  getUserByName
+  getUserByName,
 }
