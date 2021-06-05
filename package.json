@@ -7,7 +7,7 @@
   "author": "EDA",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./client/webpack.config.js",
+    "build": "webpack --config ./client/webpack.config.js && knex migrate:latest",
     "dev:client": "npm run build -- --watch",
     "dev:server": "node server",
     "dev": "run-p dev:client dev:server",
@@ -16,6 +16,7 @@
     "lint:fix": "eslint . --fix",
     "start": "node server",
     "test": "jest --watchAll --verbose"
+    
   },
   "keywords": [
     "fullstack"
@@ -37,6 +38,7 @@
     "jest": "^26.6.3",
     "knex": "^0.21.19",
     "lodash": "^4.17.21",
+    "pg": "^8.6.0",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
@@ -60,7 +62,7 @@
     "webpack-cli": "^3.3.12"
   },
   "engines": {
-    "node": "14.x",
-    "npm": "6.x"
+    "node": "15.x",
+    "npm": "7.x"
   }
 }
