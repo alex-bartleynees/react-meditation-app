@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import AddUser from './AddUser'
 import DeleteUser from './DeleteUser'
 import ViewUsers from './ViewUsers'
-import Timer from './Timer'
 
 import { getUsers, viewMeditation } from '../actions/actions'
 

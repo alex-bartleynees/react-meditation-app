@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import ErrorPage from './ErrorPage'
+import { getUsers, viewMeditation } from '../actions/actions'
 
-const ViewMeditation = ({ meditations, match }) => {
+const ViewMeditation = ({ dispatch, meditations, match }) => {
+  useEffect(() => {
+    dispatch(getUsers())
+    dispatch(viewMeditation())
+  }, [])
+
   const id = parseInt(match.params.id)
 
   const history = useHistory()

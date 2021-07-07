@@ -37,7 +37,7 @@ const Timer = () => {
   return (
     <div className="columns is-desktop is-vcentered">
       <div className="column m-6 has-text-centered">
-      <h1>Timer</h1>
+        <h1>Timer</h1>
         {format(timer)}
       </div>
       <div className="column has-text-centered">

@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-const ViewUsers = ({ users }) => {
+import { getUsers } from '../actions/actions'
+
+const ViewUsers = ({ dispatch, users }) => {
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [])
+
   const filteredUsers = users.filter(el => el !== null)
   return (
 
